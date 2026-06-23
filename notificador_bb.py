@@ -6,8 +6,6 @@ import threading
 from flask import Flask
 from datetime import datetime
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -54,7 +52,7 @@ def iniciar_navegador():
     options.add_argument("--disable-notifications")
     options.add_argument("--window-size=1920,1080")
     
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+    driver = webdriver.Chrome(options=options)
     return driver
 
 def revisar_anuncios_blackboard():
